@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import GiphList from '../GiphList';
+import GifList from '../GifList';
 import SearchBar from '../SearchBar';
 
 class App extends Component {
@@ -27,7 +27,7 @@ class App extends Component {
           <h2>Let's get Giphy</h2>
         </div>
         <SearchBar />
-        <GiphList
+        <GifList
           gifs={this.state.activeSearch ? recentSearchGifs : trendingGifs}
         />
       </div>
