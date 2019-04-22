@@ -1,3 +1,4 @@
+const axios = require('axios');
 const BASE_URL = 'api.giphy.com';
 
 class GiphyApi {
