@@ -20,9 +20,14 @@ class App extends PureComponent {
   }
 
   fetchGifs = searchTerm => {
+    this.setState({ activeSearch: true });
     // API request for gifs that meet search term
     // set state of activeSearch to true
     // once results come in, setState of recentSearchGifs to equal results
+  };
+
+  clearSearchResults = () => {
+    this.setState({ activeSearch: false });
   };
 
   render() {
