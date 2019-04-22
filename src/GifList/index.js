@@ -17,7 +17,7 @@ class GifList extends Component {
             />
           ))
         ) : (
-          <h2>Gifs Loading...</h2>
+          <h2>GIFs Loading...</h2>
         )}
       </div>
     );
