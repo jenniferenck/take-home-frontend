@@ -13,22 +13,24 @@ class App extends PureComponent {
       recentSearchGifs: [],
       activeSearch: false
     };
+    this.fetchGifs = this.fetchGifs.bind(this);
+    this.clearSearchResults = this.clearSearchResults.bind(this);
   }
 
   // on initial page load, fetch trending Gifs
   async componentDidMount() {
-    // API request to giphy for most current gifs
     const trendingGifs = await GiphyApi.fetchTrendingGifs();
     this.setState({ trendingGifs: trendingGifs.data });
     console.log('trending:', trendingGifs.data);
   }
 
-  fetchGifs = searchTerm => {
+  // API request for gifs that meet search term
+  async fetchGifs(searchTerm) {
     this.setState({ activeSearch: true });
-    // API request for gifs that meet search term
-    // set state of activeSearch to true
-    // once results come in, setState of recentSearchGifs to equal results
-  };
+    const searchResults = await GiphyApi.fetchGifs(searchTerm);
+    this.setState({ recentSearchGifs: searchResults.data });
+    console.log('search results:', searchResults.data);
+  }
 
   clearSearchResults = () => {
     this.setState({ activeSearch: false });
