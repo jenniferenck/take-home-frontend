@@ -19,11 +19,11 @@ class App extends PureComponent {
     // API request to giphy for most current gifs
   }
 
-  fetchGifs(searchTerm) {
+  fetchGifs = searchTerm => {
     // API request for gifs that meet search term
     // set state of activeSearch to true
     // once results come in, setState of recentSearchGifs to equal results
-  }
+  };
 
   render() {
     const { recentSearchGifs, trendingGifs } = this.state;
@@ -32,7 +32,7 @@ class App extends PureComponent {
         <div className="App-header">
           <h2>Let's get Giphy</h2>
         </div>
-        <SearchBar />
+        <SearchBar handleSearch={this.fetchGifs} />
         <GifList
           gifs={this.state.activeSearch ? recentSearchGifs : trendingGifs}
         />
