@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import './App.css';
 import GifList from '../GifList';
 import SearchBar from '../SearchBar';
+import GiphyApi from '../GiphyApi';
 
 class App extends PureComponent {
   constructor(props) {
@@ -15,8 +16,11 @@ class App extends PureComponent {
   }
 
   // on initial page load, fetch trending Gifs
-  componentDidMount() {
+  async componentDidMount() {
     // API request to giphy for most current gifs
+    const trendingGifs = await GiphyApi.fetchTrendingGifs();
+    this.setState({ trendingGifs: trendingGifs.data });
+    console.log('trending:', trendingGifs.data);
   }
 
   fetchGifs = searchTerm => {
