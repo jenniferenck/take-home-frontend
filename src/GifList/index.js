@@ -2,15 +2,24 @@ import React, { Component } from 'react';
 import Gif from '../Gif';
 
 class GifList extends Component {
-  //   constructor(props) {
-  //     super(props);
-  //     this.state = { trendingGifs: [], recentSearchGifs: [] };
-  //   }
   render() {
-    //   check 1st if there is an active search going on
-    // if no active search, check if trendingGifs array has anything yet?
+    const { gifs } = this.props;
     return (
-      <div>{this.props.gifs.length ? <Gif /> : <h2>Gifs Loading...</h2>}</div>
+      <div>
+        {gifs.length ? (
+          gifs.map(gif => (
+            <Gif
+              key={gif.id}
+              title={gif.title}
+              imageUrl={gif.images.fixed_height.url}
+              source={gif.source}
+              rating={gif.rating}
+            />
+          ))
+        ) : (
+          <h2>Gifs Loading...</h2>
+        )}
+      </div>
     );
   }
 }
