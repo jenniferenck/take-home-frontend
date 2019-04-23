@@ -20,6 +20,7 @@ class App extends PureComponent {
     };
     this.fetchGifs = this.fetchGifs.bind(this);
     this.clearSearchResults = this.clearSearchResults.bind(this);
+    this.addOrRemoveFavorite = this.addOrRemoveFavorite.bind(this);
   }
 
   // on initial page load, fetch trending Gifs and check localStorage for any favorites
@@ -51,7 +52,14 @@ class App extends PureComponent {
   }
 
   // takes a gif object, adds/removes it to the favorited array and replaces localStorage
-  addOrRemoveFavorite(gifObj, action) {
+  addOrRemoveFavorite(gifObj, favorite) {
+    console.log(gifObj);
+    if (favorite) {
+      let newFavorites = [...this.state.favoritedGifs, gifObj];
+      this.setState({ favoritedGifs: newFavorites });
+      localStorage.setItem('favorites', JSON.stringify(newFavorites));
+      console.log('newFavs', newFavorites);
+    }
     // if action is ADD --> push the object to the favorites array
     // stringify they favorites array
     // replace favorites key (setItem) in localstorage
@@ -77,6 +85,7 @@ class App extends PureComponent {
         </h3>
 
         <GifList
+          handleAddOrRemoveFav={this.addOrRemoveFavorite}
           gifs={this.state.activeSearch ? recentSearchGifs : trendingGifs}
         />
       </div>

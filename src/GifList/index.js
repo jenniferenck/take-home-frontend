@@ -4,7 +4,7 @@ import './GifList.css';
 
 class GifList extends Component {
   render() {
-    const { gifs, handleClick } = this.props;
+    const { gifs, handleAddOrRemoveFav } = this.props;
     return (
       <div className="gif-list-section">
         {gifs.length ? (
@@ -15,7 +15,7 @@ class GifList extends Component {
               imageUrl={gif.images.fixed_height.url}
               source={gif.source}
               rating={gif.rating}
-              handleClick={handleClick}
+              handleAddOrRemoveFav={handleAddOrRemoveFav}
             />
           ))
         ) : (
