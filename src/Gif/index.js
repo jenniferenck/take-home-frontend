@@ -16,6 +16,11 @@ class Gif extends Component {
   render() {
     return (
       <div className="gif" onClick={() => this.props.handleClick(this.props)}>
+        <i
+          className={
+            this.state.hovering ? 'far fa-heart' : 'far fa-heart-hidden'
+          }
+        />
         <img
           onMouseEnter={this.toggleHover}
           onMouseLeave={this.toggleHover}

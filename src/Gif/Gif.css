@@ -1,5 +1,6 @@
 .gif {
   margin: 1em;
+  position: relative;
 }
 
 img {
@@ -10,4 +11,20 @@ img {
 
 .hovering {
   filter: drop-shadow(-7px 7px 4px lightgray);
+}
+
+/* display of heart is hidden until hover */
+
+.fa-heart {
+  top: 30px;
+  right: 30px;
+  position: absolute;
+  color: rgb(231, 96, 179);
+  z-index: 300;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.fa-heart-hidden {
+  visibility: hidden;
 }
