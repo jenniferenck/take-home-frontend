@@ -14,7 +14,8 @@ class App extends PureComponent {
       recentSearchGifs: [],
       activeSearch: false,
       activeModal: false,
-      activeGif: {}
+      activeGif: {},
+      currentSearchTerm: ''
     };
     this.fetchGifs = this.fetchGifs.bind(this);
     this.clearSearchResults = this.clearSearchResults.bind(this);
@@ -32,7 +33,10 @@ class App extends PureComponent {
   async fetchGifs(searchTerm) {
     this.setState({ activeSearch: true });
     const searchResults = await GiphyApi.fetchGifs(searchTerm);
-    this.setState({ recentSearchGifs: searchResults.data });
+    this.setState({
+      recentSearchGifs: searchResults.data,
+      currentSearchTerm: searchTerm
+    });
     console.log('search results:', searchResults.data);
   }
 
@@ -69,7 +73,9 @@ class App extends PureComponent {
           />
         ) : null}
         <h3 className="gif-list-header">
-          {this.state.activeSearch ? 'Your search' : "What's Trending..."}
+          {this.state.activeSearch
+            ? `GIPHY results for: #${this.state.currentSearchTerm}`
+            : "What's Trending..."}
         </h3>
 
         <GifList
