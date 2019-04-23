@@ -23,7 +23,7 @@ img {
   height: 100%;
   z-index: 300;
   padding: 10px;
-  transform: translate3d(0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
   transition: opacity 1s ease;
   opacity: 0;
 }
@@ -50,8 +50,9 @@ p {
   z-index: 300;
   font-size: 2em;
   cursor: pointer;
+  transition: font-weight 0.3s ease-in-out;
 }
 
-.fa-heart-hidden {
-  visibility: hidden;
+.favorited {
+  font-weight: bold;
 }
