@@ -16,10 +16,10 @@ class GiphyApi {
   static async fetchGifs(searchTerm) {
     // fetches gifs based on searchTerm
     const formattedSearchTerm = Helpers.removeSpaces(searchTerm);
-    console.log(formattedSearchTerm);
     const results = await axios.get(
-      `${BASE_URL}search?q=${searchTerm}api_key=${GIPHY_KEY}`
+      `${BASE_URL}search?q=${formattedSearchTerm}&api_key=${GIPHY_KEY}`
     );
+    console.log('results', results.data);
     return results.data;
   }
 }
