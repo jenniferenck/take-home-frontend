@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './SearchBar.css';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class SearchBar extends Component {
   render() {
     const { handleReset } = this.props;
     return (
-      <div>
+      <div className="searchbar-section">
         <form onSubmit={this.handleSubmit} id="search-form">
           <input
             placeholder="Search for a gif here!"
