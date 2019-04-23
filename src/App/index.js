@@ -4,6 +4,7 @@ import './App.css';
 import GifList from '../GifList';
 import SearchBar from '../SearchBar';
 import GiphyApi from '../GiphyApi';
+import GiphModal from '../GiphModal';
 
 class App extends PureComponent {
   constructor(props) {
@@ -11,7 +12,8 @@ class App extends PureComponent {
     this.state = {
       trendingGifs: [],
       recentSearchGifs: [],
-      activeSearch: false
+      activeSearch: false,
+      activeModal: false
     };
     this.fetchGifs = this.fetchGifs.bind(this);
     this.clearSearchResults = this.clearSearchResults.bind(this);
@@ -47,6 +49,7 @@ class App extends PureComponent {
           handleSearch={this.fetchGifs}
           handleReset={this.clearSearchResults}
         />
+        {this.state.activeModal ? <GiphModal /> : null}
         <GifList
           gifs={this.state.activeSearch ? recentSearchGifs : trendingGifs}
         />
