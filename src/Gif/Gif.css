@@ -9,5 +9,5 @@ img {
 }
 
 .hovering {
-  filter: drop-shadow(-4px 4px 2px lightgray);
+  filter: drop-shadow(-7px 7px 4px lightgray);
 }
