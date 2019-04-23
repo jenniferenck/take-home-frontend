@@ -27,11 +27,11 @@ img {
 }
 
 .text-overlay:hover {
-  background-color: rgb(1, 1, 1, 0.7);
+  background-color: rgb(1, 1, 1, 0.77);
   opacity: 1;
   cursor: pointer;
   z-index: 300;
-  filter: drop-shadow(-7px 7px 4px lightgray);
+  /* filter: drop-shadow(-7px 7px 4px lightgray); */
 }
 
 .text-overlay h4,
@@ -39,14 +39,9 @@ p {
   margin: 0.3em;
 }
 
-img:hover {
-  background-color: rgb(169, 46, 194, 0.5);
-  opacity: 0.5;
-}
-
 .source {
   position: relative;
-  max-width: 100%;
+  max-width: 95%;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }

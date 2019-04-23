@@ -16,13 +16,9 @@ class Gif extends Component {
     const { title, source, imageUrl, rating } = this.props;
     return (
       <div className="gif" onDoubleClickCapture={this.handleDoubleTap}>
-        {/* <i
-          className={
-            this.state.hovering ? 'far fa-heart' : 'far fa-heart-hidden'
-          }
-        /> */}
         <img src={imageUrl} alt={title} />
         <div className="text-overlay">
+          <i className="far fa-heart" />
           <div>
             <h4>Title:</h4>
             <p>{title}</p>
