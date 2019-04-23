@@ -30,10 +30,10 @@ class SearchBar extends Component {
             value={this.state.searchTerm}
             onChange={this.handleChange}
           />
-          <button onClick={this.handleSubmit} id="search">
-            Search
-          </button>
         </form>
+        <button onClick={this.handleSubmit} id="search">
+          Search
+        </button>
         <button onClick={handleReset} id="reset-search">
           Reset
         </button>
