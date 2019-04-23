@@ -15,7 +15,7 @@ class GiphModal extends Component {
           <h3>Rating:</h3>
           <p>{currentGif.rating}</p>
         </div>
-        <div>
+        <div className="source">
           <h3>Source:</h3>
           <p>
             {currentGif.source.length ? currentGif.source : 'Not available'}
