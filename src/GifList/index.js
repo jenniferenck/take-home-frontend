@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Gif from '../Gif';
+import './GifList.css';
 
 class GifList extends Component {
   render() {
     const { gifs, handleClick } = this.props;
     return (
-      <div>
+      <div className="gif-list-section">
         {gifs.length ? (
           gifs.map(gif => (
             <Gif
