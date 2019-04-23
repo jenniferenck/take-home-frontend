@@ -14,7 +14,7 @@ class App extends PureComponent {
       recentSearchGifs: [],
       activeSearch: false,
       activeModal: false,
-      activeGif: ''
+      activeGif: {}
     };
     this.fetchGifs = this.fetchGifs.bind(this);
     this.clearSearchResults = this.clearSearchResults.bind(this);
@@ -43,11 +43,11 @@ class App extends PureComponent {
   // if a gif is clicked on, an obj with gif info is passed through to be displayed in modal
   toggleModalView(gif) {
     console.log('close clicked', gif);
-    if (gif) {
+    if (!this.state.activeModal) {
       this.setState({ activeModal: true, activeGif: gif });
     } else {
       console.log('inside else!');
-      this.setState({ activeModal: false, activeGif: '' });
+      this.setState({ activeModal: false, activeGif: {} });
     }
   }
 
