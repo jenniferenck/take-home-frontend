@@ -28,7 +28,12 @@ class App extends PureComponent {
     this.setState({ trendingGifs: trendingGifs.data });
 
     // check localStorage, parse and set favorited Gifs array
-    console.log('trending:', trendingGifs.data);
+    if (localStorage.favorites) {
+      const storedFavorites = localStorage.getItem('favorites');
+      const favoritesArr = JSON.parse(storedFavorites);
+      this.setState({ favoritedGifs: favoritesArr });
+      console.log(favoritesArr);
+    }
   }
 
   // API request for gifs that meet search term
@@ -53,6 +58,8 @@ class App extends PureComponent {
   }
 
   render() {
+    console.log('local storage:', this.state.favoritedGifs);
+
     const { recentSearchGifs, trendingGifs, activeGif } = this.state;
     return (
       <div className="App">
