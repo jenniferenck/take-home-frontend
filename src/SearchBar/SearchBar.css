@@ -1,3 +1,22 @@
-.searchbar-section {
-  display: flex;
+#search-form > input {
+  margin: 1em;
+  width: 80%;
+  padding: 0.7em;
+  margin-bottom: 1.25em;
+}
+
+#search {
+  color: white;
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  margin-left: 0.5em;
+}
+
+#reset-search {
+  color: white;
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  margin-left: 0.5em;
 }
