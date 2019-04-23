@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import './Gif.css';
 
 class Gif extends Component {
   render() {
     return (
-      <div onClick={() => this.props.handleClick(this.props)}>
+      <div className="gif" onClick={() => this.props.handleClick(this.props)}>
         <img src={this.props.imageUrl} alt={this.props.title} />
       </div>
     );
