@@ -20,7 +20,7 @@ class SearchBar extends Component {
   render() {
     const { handleReset } = this.props;
     return (
-      <form onSumit={this.handleSubmit} id="search-form">
+      <form onSubmit={this.handleSubmit} id="search-form">
         <input
           placeholder="Search for a gif here!"
           type="text"
