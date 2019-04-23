@@ -37,21 +37,14 @@ img {
 
 .text-overlay h4,
 p {
-  margin: 0.3em;
-}
-
-.source {
-  position: relative;
-  max-width: 95%;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+  margin: 0.5em;
 }
 
 /* display of heart is hidden until hover */
 
 .fa-heart {
-  top: 30px;
-  right: 30px;
+  top: 35px;
+  right: 35px;
   position: absolute;
   color: rgb(231, 96, 179);
   z-index: 300;

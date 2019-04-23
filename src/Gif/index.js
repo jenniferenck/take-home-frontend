@@ -21,15 +21,11 @@ class Gif extends Component {
           <i className="far fa-heart" />
           <div>
             <h4>Title:</h4>
-            <p>{title}</p>
+            <p>{title.length ? title : 'Not available'}</p>
           </div>
           <div>
             <h4>Rating:</h4>
             <p>{rating}</p>
-          </div>
-          <div className="source">
-            <h4>Source:</h4>
-            <p>{source.length ? source : 'Not available'}</p>
           </div>
         </div>
       </div>
