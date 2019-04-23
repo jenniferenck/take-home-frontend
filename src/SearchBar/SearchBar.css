@@ -11,6 +11,7 @@
   background-color: rgba(0, 0, 0, 0.3);
   border: none;
   margin-left: 0.5em;
+  cursor: pointer;
 }
 
 #reset-search {
@@ -19,4 +20,22 @@
   background-color: rgba(0, 0, 0, 0.3);
   border: none;
   margin-left: 0.5em;
+  cursor: pointer;
+}
+
+.favorites-clickable {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1em;
+  cursor: pointer;
+}
+
+.favorited-header {
+  position: static;
+  margin-left: 0.25em;
+  font-size: 1.25em;
+  color: white;
+  font-weight: bold;
 }

@@ -37,6 +37,14 @@ class SearchBar extends Component {
         <button onClick={handleReset} id="reset-search">
           Reset
         </button>
+        <span className="favorites-clickable">
+          <div>My </div>
+          <i
+            onClick={this.toggleFavorite}
+            className="far fa-heart favorited-header"
+          />
+          <div>s</div>
+        </span>
       </div>
     );
   }
