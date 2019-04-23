@@ -4,7 +4,6 @@ import './App.css';
 import GifList from '../GifList';
 import SearchBar from '../SearchBar';
 import GiphyApi from '../GiphyApi';
-import GiphModal from '../GiphModal';
 
 class App extends PureComponent {
   constructor(props) {
@@ -12,7 +11,7 @@ class App extends PureComponent {
     this.state = {
       trendingGifs: [],
       recentSearchGifs: [],
-      favoritedGifs: [],
+      favoritedGifs: {},
       activeSearch: false,
       activeModal: false,
       activeGif: {},
@@ -31,9 +30,9 @@ class App extends PureComponent {
     // check localStorage, parse and set favorited Gifs array
     if (localStorage.favorites) {
       const storedFavorites = localStorage.getItem('favorites');
-      const favoritesArr = JSON.parse(storedFavorites);
-      this.setState({ favoritedGifs: favoritesArr });
-      console.log(favoritesArr);
+      const favoritesObj = JSON.parse(storedFavorites);
+      this.setState({ favoritedGifs: favoritesObj });
+      console.log(favoritesObj);
     }
   }
 
@@ -53,16 +52,20 @@ class App extends PureComponent {
 
   // takes a gif object, adds/removes it to the favorited array and replaces localStorage
   addOrRemoveFavorite(gifObj, favorite) {
-    console.log(gifObj);
+    // if favorite is TRUE --> add to local storage and state, if FALSE --> remove
+    const newGif = {};
+    newGif[gifObj.id] = gifObj;
+    console.log(newGif);
+    let newFavorites;
     if (favorite) {
-      let newFavorites = [...this.state.favoritedGifs, gifObj];
+      newFavorites = { ...this.state.favoritedGifs, ...newGif };
       this.setState({ favoritedGifs: newFavorites });
       localStorage.setItem('favorites', JSON.stringify(newFavorites));
-      console.log('newFavs', newFavorites);
+    } else {
+      // find index of 'unfavorited' splice the
+      newFavorites = {};
     }
-    // if action is ADD --> push the object to the favorites array
-    // stringify they favorites array
-    // replace favorites key (setItem) in localstorage
+    console.log('newFavs', newFavorites);
   }
 
   render() {

@@ -11,6 +11,7 @@ class GifList extends Component {
           gifs.map(gif => (
             <Gif
               key={gif.id}
+              id={gif.id}
               title={gif.title}
               imageUrl={gif.images.fixed_height.url}
               source={gif.source}
