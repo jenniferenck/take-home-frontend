@@ -23,19 +23,13 @@ class Gif extends Component {
   render() {
     const { title, source, imageUrl, rating } = this.props;
     return (
-      <div
-        className="gif"
-        onClick={() => this.props.handleClick(this.props)}
-        onDoubleClickCapture={this.handleDoubleTap}
-      >
+      <div className="gif" onDoubleClickCapture={this.handleDoubleTap}>
         {/* <i
           className={
             this.state.hovering ? 'far fa-heart' : 'far fa-heart-hidden'
           }
         /> */}
         <img
-          // onMouseEnter={this.handletoggleHover}
-          // onMouseLeave={this.handletoggleHover}
           className={this.state.hovering ? 'hovering' : ''}
           src={imageUrl}
           alt={title}
