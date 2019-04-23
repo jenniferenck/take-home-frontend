@@ -13,10 +13,12 @@ class App extends PureComponent {
       trendingGifs: [],
       recentSearchGifs: [],
       activeSearch: false,
-      activeModal: false
+      activeModal: false,
+      activeGif: ''
     };
     this.fetchGifs = this.fetchGifs.bind(this);
     this.clearSearchResults = this.clearSearchResults.bind(this);
+    this.toggleModalState = this.toggleModalState.bind(this);
   }
 
   // on initial page load, fetch trending Gifs
@@ -38,8 +40,17 @@ class App extends PureComponent {
     this.setState({ activeSearch: false, recentSearchGifs: [] });
   }
 
+  // if a gif is clicked on, an obj with gif info is passed through to be displayed in modal
+  toggleModalState(gif) {
+    if (gif) {
+      this.setState({ activeModal: true, activeGif: gif });
+    } else {
+      this.setState({ activeModal: false, activeGif: '' });
+    }
+  }
+
   render() {
-    const { recentSearchGifs, trendingGifs } = this.state;
+    const { recentSearchGifs, trendingGifs, activeGif } = this.state;
     return (
       <div className="App">
         <div className="App-header">
@@ -49,9 +60,10 @@ class App extends PureComponent {
           handleSearch={this.fetchGifs}
           handleReset={this.clearSearchResults}
         />
-        {this.state.activeModal ? <GiphModal /> : null}
+        {this.state.activeModal ? <GiphModal currentGif={activeGif} /> : null}
         <GifList
           gifs={this.state.activeSearch ? recentSearchGifs : trendingGifs}
+          handleClick={this.toggleModalState}
         />
       </div>
     );
