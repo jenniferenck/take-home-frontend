@@ -56,12 +56,12 @@ class App extends PureComponent {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Let's get Giphy</h2>
+          <h2>Search your favorite GIFs in one place!</h2>
+          <SearchBar
+            handleSearch={this.fetchGifs}
+            handleReset={this.clearSearchResults}
+          />
         </div>
-        <SearchBar
-          handleSearch={this.fetchGifs}
-          handleReset={this.clearSearchResults}
-        />
         {this.state.activeModal ? (
           <GiphModal
             currentGif={activeGif}
