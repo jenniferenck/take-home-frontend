@@ -1,5 +1,5 @@
 import GIPHY_KEY from './env';
-import Helpers from './Helpers';
+import Helpers from './helpers';
 const axios = require('axios');
 
 const BASE_URL = `https://api.giphy.com/v1/gifs/`;
