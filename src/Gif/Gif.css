@@ -5,4 +5,9 @@
 img {
   padding: 1em;
   filter: drop-shadow(-4px 4px 2px purple);
+  cursor: pointer;
+}
+
+.hovering {
+  filter: drop-shadow(-4px 4px 2px lightgray);
 }
