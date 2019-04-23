@@ -32,9 +32,9 @@ class App extends PureComponent {
     console.log('search results:', searchResults.data);
   }
 
-  clearSearchResults = () => {
-    this.setState({ activeSearch: false });
-  };
+  clearSearchResults() {
+    this.setState({ activeSearch: false, recentSearchGifs: [] });
+  }
 
   render() {
     const { recentSearchGifs, trendingGifs } = this.state;
@@ -43,7 +43,10 @@ class App extends PureComponent {
         <div className="App-header">
           <h2>Let's get Giphy</h2>
         </div>
-        <SearchBar handleSearch={this.fetchGifs} />
+        <SearchBar
+          handleSearch={this.fetchGifs}
+          handleReset={this.clearSearchResults}
+        />
         <GifList
           gifs={this.state.activeSearch ? recentSearchGifs : trendingGifs}
         />

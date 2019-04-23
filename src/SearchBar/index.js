@@ -20,21 +20,23 @@ class SearchBar extends Component {
   render() {
     const { handleReset } = this.props;
     return (
-      <form onSubmit={this.handleSubmit} id="search-form">
-        <input
-          placeholder="Search for a gif here!"
-          type="text"
-          name="searchTerm"
-          value={this.state.searchTerm}
-          onChange={this.handleChange}
-        />
-        <button onClick={this.handleSubmit} id="search">
-          Search
-        </button>
+      <div>
+        <form onSubmit={this.handleSubmit} id="search-form">
+          <input
+            placeholder="Search for a gif here!"
+            type="text"
+            name="searchTerm"
+            value={this.state.searchTerm}
+            onChange={this.handleChange}
+          />
+          <button onClick={this.handleSubmit} id="search">
+            Search
+          </button>
+        </form>
         <button onClick={handleReset} id="reset-search">
           Reset
         </button>
-      </form>
+      </div>
     );
   }
 }
