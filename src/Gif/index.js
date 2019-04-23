@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Gif extends Component {
   render() {
     return (
-      <div>
+      <div onClick={this.props.handleClick}>
         <img src={this.props.imageUrl} alt={this.props.title} />
       </div>
     );

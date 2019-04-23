@@ -3,7 +3,7 @@ import Gif from '../Gif';
 
 class GifList extends Component {
   render() {
-    const { gifs } = this.props;
+    const { gifs, handleClick } = this.props;
     return (
       <div>
         {gifs.length ? (
@@ -14,6 +14,7 @@ class GifList extends Component {
               imageUrl={gif.images.fixed_height.url}
               source={gif.source}
               rating={gif.rating}
+              handleClick={handleClick}
             />
           ))
         ) : (
