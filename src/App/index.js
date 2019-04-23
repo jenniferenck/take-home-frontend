@@ -12,6 +12,7 @@ class App extends PureComponent {
     this.state = {
       trendingGifs: [],
       recentSearchGifs: [],
+      favoritedGifs: [],
       activeSearch: false,
       activeModal: false,
       activeGif: {},
@@ -21,10 +22,12 @@ class App extends PureComponent {
     this.clearSearchResults = this.clearSearchResults.bind(this);
   }
 
-  // on initial page load, fetch trending Gifs
+  // on initial page load, fetch trending Gifs and check localStorage for any favorites
   async componentDidMount() {
     const trendingGifs = await GiphyApi.fetchTrendingGifs();
     this.setState({ trendingGifs: trendingGifs.data });
+
+    // check localStorage, parse and set favorited Gifs array
     console.log('trending:', trendingGifs.data);
   }
 
@@ -36,11 +39,17 @@ class App extends PureComponent {
       recentSearchGifs: searchResults.data,
       currentSearchTerm: searchTerm
     });
-    console.log('search results:', searchResults.data);
   }
 
   clearSearchResults() {
     this.setState({ activeSearch: false, recentSearchGifs: [] });
+  }
+
+  // takes a gif object, adds/removes it to the favorited array and replaces localStorage
+  addOrRemoveFavorite(gifObj, action) {
+    // if action is ADD --> push the object to the favorites array
+    // stringify they favorites array
+    // replace favorites key (setItem) in localstorage
   }
 
   render() {
