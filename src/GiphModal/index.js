@@ -7,11 +7,17 @@ class GiphModal extends Component {
     console.log(currentGif);
     return (
       <div className="modal">
-        <h3>Title: {currentGif.title}</h3>
-        <h3>Rating: {currentGif.rating}</h3>
-        <h3>Source: {currentGif.source}</h3>
+        <h3>Title:</h3>
+        <p>{currentGif.title}</p>
+        <h3>Rating:</h3>
+        <p>{currentGif.rating}</p>
+        <h3>Source:</h3>
+        <p>{currentGif.source}</p>
 
-        <button onClick={handleClose}>close</button>
+        <button className="close-button" onClick={handleClose}>
+          close
+          <br />x
+        </button>
       </div>
     );
   }
