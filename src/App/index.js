@@ -68,6 +68,10 @@ class App extends PureComponent {
             handleClose={this.toggleModalView}
           />
         ) : null}
+        <h3 className="gif-list-header">
+          {this.state.activeSearch ? 'Your search' : "What's Trending..."}
+        </h3>
+
         <GifList
           gifs={this.state.activeSearch ? recentSearchGifs : trendingGifs}
           handleClick={this.toggleModalView}

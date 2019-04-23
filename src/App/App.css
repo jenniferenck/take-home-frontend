@@ -76,3 +76,8 @@
     background-position: 0% 82%;
   }
 }
+
+.gif-list-header {
+  margin-top: 2em;
+  margin-bottom: 0;
+}
