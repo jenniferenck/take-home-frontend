@@ -40,6 +40,20 @@ class Gif extends Component {
           src={imageUrl}
           alt={title}
         />
+        <div className="text-overlay">
+          <div>
+            <h4>Title:</h4>
+            <p>{title}</p>
+          </div>
+          <div>
+            <h4>Rating:</h4>
+            <p>{rating}</p>
+          </div>
+          <div className="source">
+            <h4>Source:</h4>
+            <p>{source.length ? source : 'Not available'}</p>
+          </div>
+        </div>
       </div>
     );
   }
