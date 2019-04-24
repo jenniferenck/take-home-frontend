@@ -27,7 +27,7 @@ class Gif extends Component {
           />
           <div>
             <h4>Title:</h4>
-            <p>{title.length ? title : 'Not available'}</p>
+            <p>{title ? title : 'Not available'}</p>
           </div>
           <div>
             <h4>Rating:</h4>
