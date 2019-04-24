@@ -1,6 +1,6 @@
 # Take-home exercise for frontend interviews at Eaze
 
-Frontend coding challenge.
+Frontend coding challenge for Jennifer Enck.
 
 ## Project
 
@@ -21,7 +21,6 @@ We strongly encourage you to pick a couple of optional improvements. The followi
 - Provide the ultimate user experience: scrolling, searching, fetching… could be optimized for UX.
 - Let the user upload a GIF.
 - Add some unit tests.
-
 
 ### Project Structure
 
@@ -47,4 +46,3 @@ We comment our code and commit often.
 We love our users and we really care about providing a good user experience and pleasant UI.
 
 We encourage out of the box thinking and we love to be impressed!
-
