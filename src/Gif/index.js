@@ -16,7 +16,7 @@ class Gif extends Component {
 
   render() {
     // console.log('gif props', this.props);
-    const { title, source, imageUrl, rating, favorited } = this.props;
+    const { title, imageUrl, rating, favorited } = this.props;
     return (
       <div className="gif" onDoubleClickCapture={this.handleDoubleTap}>
         <img src={imageUrl} alt={title} />

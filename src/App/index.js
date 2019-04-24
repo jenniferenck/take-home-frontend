@@ -73,7 +73,7 @@ class App extends Component {
   }
 
   render() {
-    const { recentSearchGifs, trendingGifs, activeGif } = this.state;
+    const { recentSearchGifs, trendingGifs } = this.state;
     return (
       <div className="App">
         <div className="App-header">
