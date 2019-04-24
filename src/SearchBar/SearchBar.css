@@ -61,7 +61,11 @@
   cursor: pointer;
   width: fit-content;
   padding: 0.75em;
-  /* background-color: rgba(0, 0, 0, 0.3); */
+}
+
+.favorites-clickable:hover {
+  color: greenyellow;
+  text-decoration: underline;
 }
 
 .favorited-header {
