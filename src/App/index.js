@@ -33,7 +33,6 @@ class App extends Component {
       const storedFavorites = localStorage.getItem('favorites');
       const favoritesObj = JSON.parse(storedFavorites);
       this.setState({ favoritedGifs: favoritesObj });
-      console.log('local storage on page load:', favoritesObj);
     }
   }
 
@@ -74,7 +73,6 @@ class App extends Component {
   }
 
   toggleFavoritesView() {
-    console.log('toggling fav view');
     this.setState(st => ({ favoritesView: !st.favoritesView }));
   }
 
