@@ -80,12 +80,12 @@ class App extends Component {
 
   // fetches more gifs with current offset and adds to trending/ recentsearch
   async fetchMoreGifs() {
-    // take current offset from state
-    // request more gifs
-    console.log('current offset', this.state.offset);
     const moreGifs = await GiphyApi.fetchMoreGifs(this.state.offset);
-    // update offset increment by 25
-    // this.setState(st => ({ offset: st.offset + 25 }));
+    // update offset increment by 25 and add new gifs to list
+    this.setState(st => ({
+      offset: st.offset + 25,
+      trendingGifs: [...st.trendingGifs, ...moreGifs]
+    }));
   }
 
   clearSearchResults() {
@@ -119,6 +119,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.trendingGifs);
     const {
       recentSearchGifs,
       trendingGifs,
