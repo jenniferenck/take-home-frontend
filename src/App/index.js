@@ -32,7 +32,7 @@ class App extends PureComponent {
       const storedFavorites = localStorage.getItem('favorites');
       const favoritesObj = JSON.parse(storedFavorites);
       this.setState({ favoritedGifs: favoritesObj });
-      console.log(favoritesObj);
+      console.log('local storage on page load:', favoritesObj);
     }
   }
 
@@ -50,26 +50,30 @@ class App extends PureComponent {
     this.setState({ activeSearch: false, recentSearchGifs: [] });
   }
 
-  // takes a gif object, adds/removes it to the favorited array and replaces localStorage
+  // takes a gif object, adds/removes it to/from favorited array and replaces localStorage
+  // if favorite is TRUE --> add to local storage and state, if FALSE --> remove
   addOrRemoveFavorite(gifObj, favorite) {
-    // if favorite is TRUE --> add to local storage and state, if FALSE --> remove
     const newGif = {};
     newGif[gifObj.id] = gifObj;
-    console.log(newGif);
     let newFavorites;
+
     if (favorite) {
       newFavorites = { ...this.state.favoritedGifs, ...newGif };
       this.setState({ favoritedGifs: newFavorites });
       localStorage.setItem('favorites', JSON.stringify(newFavorites));
     } else {
-      // find index of 'unfavorited' splice the
-      newFavorites = {};
+      // find in favorites, replace local storage with new object
+      // make a copy of current state
+      newFavorites = this.state.favoritedGifs;
+      delete newFavorites[newGif.id];
+
+      this.setState({ favoritedGifs: newFavorites });
+      localStorage.setItem('favorites', JSON.stringify(newFavorites));
     }
-    console.log('newFavs', newFavorites);
   }
 
   render() {
-    console.log('local storage:', this.state.favoritedGifs);
+    // console.log('local storage:', localStorage.favorites);
 
     const { recentSearchGifs, trendingGifs, activeGif } = this.state;
     return (
@@ -90,6 +94,7 @@ class App extends PureComponent {
         <GifList
           handleAddOrRemoveFav={this.addOrRemoveFavorite}
           gifs={this.state.activeSearch ? recentSearchGifs : trendingGifs}
+          favoritedGifs={this.state.favoritedGifs}
         />
       </div>
     );
