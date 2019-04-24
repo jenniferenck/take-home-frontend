@@ -4,12 +4,13 @@ import './GifList.css';
 
 class GifList extends Component {
   render() {
-    const { gifs, handleAddOrRemoveFav } = this.props;
+    const { gifs, handleAddOrRemoveFav, favoritedGifs } = this.props;
     return (
       <div className="gif-list-section">
         {gifs.length ? (
           gifs.map(gif => (
             <Gif
+              favorited={favoritedGifs[gif.id] ? true : false}
               key={gif.id}
               id={gif.id}
               title={gif.title}
