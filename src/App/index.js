@@ -17,7 +17,8 @@ class App extends Component {
       activeModal: false,
       favoritesView: false,
       currentSearchTerm: '',
-      offset: 25
+      offset: 25,
+      loadingMoreGifs: false
     };
     this.fetchGifs = this.fetchGifs.bind(this);
     this.fetchMoreGifs = this.fetchMoreGifs.bind(this);
@@ -55,36 +56,38 @@ class App extends Component {
 
   onScroll = () => {
     const {
-      fetchMoreGifs
-      // state: {
-      //   loadingMoreGifs,
-      //   hasMore,
-      // },
+      fetchMoreGifs,
+      state: {
+        loadingMoreGifs
+        // hasMore,
+      }
     } = this;
 
     // Bails early if:
     // * there's an error
     // * it's already loading
     // * there's nothing left to load
-    // if (loadingMoreGifs || !hasMore) return;
+    // || !hasMore (for later implementation)
+    if (loadingMoreGifs) return;
 
     // Checks that the page has scrolled to the bottom
     if (
       window.innerHeight + document.documentElement.scrollTop ===
       document.documentElement.offsetHeight
     ) {
-      console.log('scroll detected');
       fetchMoreGifs(this.state.offset);
     }
   };
 
   // fetches more gifs with current offset and adds to trending/ recentsearch
   async fetchMoreGifs() {
+    this.setState({ loadingMoreGifs: true });
     const moreGifs = await GiphyApi.fetchMoreGifs(this.state.offset);
     // update offset increment by 25 and add new gifs to list
     this.setState(st => ({
       offset: st.offset + 25,
-      trendingGifs: [...st.trendingGifs, ...moreGifs]
+      trendingGifs: [...st.trendingGifs, ...moreGifs],
+      loadingMoreGifs: false
     }));
   }
 
@@ -126,7 +129,8 @@ class App extends Component {
       favoritesView,
       currentSearchTerm,
       favoritedGifs,
-      activeSearch
+      activeSearch,
+      loadingMoreGifs
     } = this.state;
     return (
       <div className="App">
@@ -153,6 +157,7 @@ class App extends Component {
           favoritedGifs={favoritedGifs}
           favoritesView={favoritesView}
         />
+        <h3>{loadingMoreGifs ? 'Loading more...' : ''}</h3>
       </div>
     );
   }
