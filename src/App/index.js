@@ -93,6 +93,7 @@ class App extends Component {
             handleSearch={this.fetchGifs}
             handleReset={this.clearSearchResults}
             handleFavoritesView={this.toggleFavoritesView}
+            favoritesView={favoritesView}
           />
         </div>
         <h3 className="gif-list-header">
