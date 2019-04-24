@@ -19,7 +19,6 @@ class GiphyApi {
     const results = await axios.get(
       `${BASE_URL}search?q=${formattedSearchTerm}&api_key=${GIPHY_KEY}`
     );
-    console.log('results', results.data);
     return results.data;
   }
 

@@ -23,7 +23,6 @@ class SearchBar extends Component {
 
   render() {
     const { handleReset, handleFavoritesView, favoritesView } = this.props;
-    console.log(this.props);
     return (
       <div className="searchbar-section">
         <form onSubmit={this.handleSubmit} id="search-form">

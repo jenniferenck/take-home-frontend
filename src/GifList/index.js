@@ -46,7 +46,6 @@ class GifList extends Component {
   };
   render() {
     const { favoritesView } = this.props;
-    console.log('rendering view type:', favoritesView);
     return (
       <div className="gif-list-section">
         {favoritesView ? this.displayFavorites() : this.displayNormalView()}

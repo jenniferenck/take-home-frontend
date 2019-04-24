@@ -122,7 +122,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.trendingGifs);
     const {
       recentSearchGifs,
       trendingGifs,

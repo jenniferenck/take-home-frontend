@@ -7,15 +7,12 @@ class Gif extends Component {
     this.toggleFavorite = this.toggleFavorite.bind(this);
   }
 
-  // add or remove from state and add/ remove from localstorage and array in app component
+  // pass the opposite of the current state to tell the add or remove whether to remove or add
   toggleFavorite(evt) {
-    console.log('previous favorite state:', this.props.favorited);
-    // pass the opposite of the current state to tell the add or remove whether to remove or add
     this.props.handleAddOrRemoveFav(this.props, !this.props.favorited);
   }
 
   render() {
-    // console.log('gif props', this.props);
     const { title, imageUrl, rating, favorited } = this.props;
     return (
       <div className="gif" onDoubleClickCapture={this.handleDoubleTap}>
