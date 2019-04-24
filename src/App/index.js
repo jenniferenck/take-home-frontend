@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import request from 'superagent';
 
 import './App.css';
 import GifList from '../GifList';
@@ -15,9 +16,11 @@ class App extends Component {
       activeSearch: false,
       activeModal: false,
       favoritesView: false,
-      currentSearchTerm: ''
+      currentSearchTerm: '',
+      offset: 25
     };
     this.fetchGifs = this.fetchGifs.bind(this);
+    this.fetchMoreGifs = this.fetchMoreGifs.bind(this);
     this.clearSearchResults = this.clearSearchResults.bind(this);
     this.addOrRemoveFavorite = this.addOrRemoveFavorite.bind(this);
     this.toggleFavoritesView = this.toggleFavoritesView.bind(this);
@@ -34,6 +37,10 @@ class App extends Component {
       const favoritesObj = JSON.parse(storedFavorites);
       this.setState({ favoritedGifs: favoritesObj });
     }
+    window.addEventListener('scroll', this.onScroll);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
   }
 
   // API request for gifs that meet search term
@@ -44,6 +51,41 @@ class App extends Component {
       recentSearchGifs: searchResults.data,
       currentSearchTerm: searchTerm
     });
+  }
+
+  onScroll = () => {
+    const {
+      fetchMoreGifs
+      // state: {
+      //   loadingMoreGifs,
+      //   hasMore,
+      // },
+    } = this;
+
+    // Bails early if:
+    // * there's an error
+    // * it's already loading
+    // * there's nothing left to load
+    // if (loadingMoreGifs || !hasMore) return;
+
+    // Checks that the page has scrolled to the bottom
+    if (
+      window.innerHeight + document.documentElement.scrollTop ===
+      document.documentElement.offsetHeight
+    ) {
+      console.log('scroll detected');
+      fetchMoreGifs(this.state.offset);
+    }
+  };
+
+  // fetches more gifs with current offset and adds to trending/ recentsearch
+  async fetchMoreGifs() {
+    // take current offset from state
+    // request more gifs
+    console.log('current offset', this.state.offset);
+    const moreGifs = await GiphyApi.fetchMoreGifs(this.state.offset);
+    // update offset increment by 25
+    // this.setState(st => ({ offset: st.offset + 25 }));
   }
 
   clearSearchResults() {
