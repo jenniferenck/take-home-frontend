@@ -5,18 +5,21 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = { searchTerm: '' };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
-  handleSubmit = evt => {
+
+  handleSubmit(evt) {
     evt.preventDefault();
     this.props.handleSearch(this.state.searchTerm);
     this.setState({ searchTerm: '' });
-  };
+  }
 
-  handleChange = evt => {
+  handleChange(evt) {
     this.setState({
       [evt.target.name]: evt.target.value
     });
-  };
+  }
 
   render() {
     const { handleReset, handleFavoritesView } = this.props;
