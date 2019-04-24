@@ -14,12 +14,13 @@ class App extends Component {
       favoritedGifs: {},
       activeSearch: false,
       activeModal: false,
-      activeGif: {},
+      favoritesView: false,
       currentSearchTerm: ''
     };
     this.fetchGifs = this.fetchGifs.bind(this);
     this.clearSearchResults = this.clearSearchResults.bind(this);
     this.addOrRemoveFavorite = this.addOrRemoveFavorite.bind(this);
+    this.toggleFavoritesView = this.toggleFavoritesView.bind(this);
   }
 
   // on initial page load, fetch trending Gifs and check localStorage for any favorites
@@ -72,7 +73,13 @@ class App extends Component {
     }
   }
 
+  toggleFavoritesView() {
+    console.log('toggling fav view');
+    this.setState(st => ({ favoritesView: !st.favoritesView }));
+  }
+
   render() {
+    console.log(this.state.favoritesView);
     const { recentSearchGifs, trendingGifs } = this.state;
     return (
       <div className="App">
@@ -81,6 +88,7 @@ class App extends Component {
           <SearchBar
             handleSearch={this.fetchGifs}
             handleReset={this.clearSearchResults}
+            handleFavoritesView={this.toggleFavoritesView}
           />
         </div>
         <h3 className="gif-list-header">
@@ -93,6 +101,7 @@ class App extends Component {
           handleAddOrRemoveFav={this.addOrRemoveFavorite}
           gifs={this.state.activeSearch ? recentSearchGifs : trendingGifs}
           favoritedGifs={this.state.favoritedGifs}
+          favoritesView={this.favoritesView}
         />
       </div>
     );

@@ -19,7 +19,7 @@ class SearchBar extends Component {
   };
 
   render() {
-    const { handleReset } = this.props;
+    const { handleReset, handleFavoritesView } = this.props;
     return (
       <div className="searchbar-section">
         <form onSubmit={this.handleSubmit} id="search-form">
@@ -40,7 +40,7 @@ class SearchBar extends Component {
           </button>
         </div>
 
-        <div className="favorites-clickable">
+        <div className="favorites-clickable" onClick={handleFavoritesView}>
           <div>My </div>
           <i
             onClick={this.toggleFavorite}
