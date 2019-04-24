@@ -21,6 +21,11 @@
   cursor: pointer;
 }
 
+#search:hover {
+  animation: pulse 1s infinite;
+  color: greenyellow;
+}
+
 #reset-search {
   color: white;
   padding: 1em;
@@ -28,6 +33,23 @@
   border: none;
   margin-left: 0.5em;
   cursor: pointer;
+}
+
+#reset-search:hover {
+  animation: pulse 1s infinite;
+  color: greenyellow;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
 }
 
 .favorites-clickable {
@@ -38,6 +60,8 @@
   margin: 1em;
   cursor: pointer;
   width: fit-content;
+  padding: 0.75em;
+  /* background-color: rgba(0, 0, 0, 0.3); */
 }
 
 .favorited-header {
