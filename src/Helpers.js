@@ -1,6 +1,6 @@
 class Helpers {
+  // replaces spaces with '+' to match giphy syntax
   static removeSpaces(str) {
-    // replaces spaces with '+' to match giphy syntax
     return (str = str.replace(' ', '+'));
   }
 }
