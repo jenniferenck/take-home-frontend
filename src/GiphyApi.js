@@ -22,6 +22,13 @@ class GiphyApi {
     console.log('results', results.data);
     return results.data;
   }
+
+  static async fetchMoreGifs(offset) {
+    const results = await axios.get(
+      `${BASE_URL}trending?api_key=${GIPHY_KEY}&offset=${offset}`
+    );
+    console.log('offset results:', results);
+  }
 }
 
 export default GiphyApi;
