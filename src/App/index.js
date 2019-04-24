@@ -1,11 +1,11 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 
 import './App.css';
 import GifList from '../GifList';
 import SearchBar from '../SearchBar';
 import GiphyApi from '../GiphyApi';
 
-class App extends PureComponent {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -65,7 +65,7 @@ class App extends PureComponent {
       // find in favorites, replace local storage with new object
       // make a copy of current state
       newFavorites = this.state.favoritedGifs;
-      delete newFavorites[newGif.id];
+      delete newFavorites[gifObj.id];
 
       this.setState({ favoritedGifs: newFavorites });
       localStorage.setItem('favorites', JSON.stringify(newFavorites));
@@ -73,8 +73,6 @@ class App extends PureComponent {
   }
 
   render() {
-    // console.log('local storage:', localStorage.favorites);
-
     const { recentSearchGifs, trendingGifs, activeGif } = this.state;
     return (
       <div className="App">
