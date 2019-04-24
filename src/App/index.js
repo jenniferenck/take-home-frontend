@@ -79,8 +79,14 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.favoritesView);
-    const { recentSearchGifs, trendingGifs } = this.state;
+    const {
+      recentSearchGifs,
+      trendingGifs,
+      favoritesView,
+      currentSearchTerm,
+      favoritedGifs,
+      activeSearch
+    } = this.state;
     return (
       <div className="App">
         <div className="App-header">
@@ -92,16 +98,18 @@ class App extends Component {
           />
         </div>
         <h3 className="gif-list-header">
-          {this.state.activeSearch
-            ? `GIPHY results for: #${this.state.currentSearchTerm}`
+          {activeSearch
+            ? `GIPHY results for: #${currentSearchTerm}`
+            : favoritesView
+            ? 'My favorites...'
             : "What's Trending..."}
         </h3>
 
         <GifList
           handleAddOrRemoveFav={this.addOrRemoveFavorite}
-          gifs={this.state.activeSearch ? recentSearchGifs : trendingGifs}
-          favoritedGifs={this.state.favoritedGifs}
-          favoritesView={this.favoritesView}
+          gifs={activeSearch ? recentSearchGifs : trendingGifs}
+          favoritedGifs={favoritedGifs}
+          favoritesView={favoritesView}
         />
       </div>
     );
