@@ -31,20 +31,23 @@ class SearchBar extends Component {
             onChange={this.handleChange}
           />
         </form>
-        <button onClick={this.handleSubmit} id="search">
-          Search
-        </button>
-        <button onClick={handleReset} id="reset-search">
-          Reset
-        </button>
-        <span className="favorites-clickable">
+        <div>
+          <button onClick={this.handleSubmit} id="search">
+            Search
+          </button>
+          <button onClick={handleReset} id="reset-search">
+            Reset
+          </button>
+        </div>
+
+        <div className="favorites-clickable">
           <div>My </div>
           <i
             onClick={this.toggleFavorite}
             className="far fa-heart favorited-header"
           />
           <div>s</div>
-        </span>
+        </div>
       </div>
     );
   }
