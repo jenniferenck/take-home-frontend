@@ -2,6 +2,17 @@
 
 Frontend coding challenge for Jennifer Enck.
 
+**Note**
+
+You will need to add a `env.js` file within the `src` folder and generate an **API key** from GIPHY (link below) You can copy and paste the following format into the `env` file:
+
+const GIPHY_KEY = 'secretkeygoeshereinastringformat';
+
+export default GIPHY_KEY;
+
+Link to generate an API key: https://developers.giphy.com/
+(select `Create an App` and create an account to get a key)
+
 ## Project
 
 We would like you to build a web app that displays the trending GIFs on [Giphy](https://giphy.com/).
