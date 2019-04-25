@@ -4,7 +4,7 @@ Frontend coding challenge for Jennifer Enck.
 
 **Note**
 
-You will need to add a `env.js` file within the `src` folder and generate an **API key** from GIPHY (link below) You can copy and paste the following format into the `env` file:
+You will need to add an API key to the `env.js` file within the `src` folder. You can generate an **API key** from GIPHY (link below) The following format is what your `env` file should look like:
 
 const GIPHY_KEY = 'secretkeygoeshereinastringformat';
 
